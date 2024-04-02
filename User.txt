@@ -1,0 +1,11 @@
+bool doesUserExist(vector<User> &users, string login)
+{
+    for (const auto &user : users)
+    {
+        if (user.login == login)
+        {
+            return true;
+        }
+    }
+    return false;
+}
