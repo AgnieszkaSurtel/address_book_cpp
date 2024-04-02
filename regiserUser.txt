@@ -1,0 +1,27 @@
+void registerUser(vector<User> &users)
+{
+    User newUser;
+    string login, password;
+
+    cout << "Enter login: ";
+    login = readLine();
+
+    if (doesUserExist(users, login))
+    {
+        cout << "User with provided login already exists." << endl;
+        return;
+    }
+
+    cout << "Enter password: ";
+    password = readLine();
+
+    newUser.id = users.empty() ? 1 : users.back().id + 1;
+    newUser.login = login;
+    newUser.password = password;
+
+    users.push_back(newUser);
+
+    cout << "User has been registered." << endl;
+    saveUserDataToFile(users);
+    Sleep(2000);
+}
